@@ -1,0 +1,21 @@
+patron,sentido,cuenta,revisar,nota
+\b(TGSS|SEGURIDAD SOCIAL|TESORERIA GRAL)\b,cargo,476,no,Cotizaciones del mes anterior
+AEAT.*MOD(ELO)?\.? ?303,cargo,4750,no,Liquidación de IVA
+AEAT.*MOD(ELO)?\.? ?(111|115),cargo,4751,no,Retenciones practicadas
+AEAT.*MOD(ELO)?\.? ?202,cargo,473,no,Pago fraccionado del impuesto sobre sociedades
+AEAT.*MOD(ELO)?\.? ?200,cargo,4752,no,Cuota del impuesto sobre sociedades
+DEVOLUCION.*(AEAT|HACIENDA),abono,4700,no,Devolución de IVA (4709 si es otro impuesto)
+\bN[OÓ]MINA\b,cargo,465,no,Pago de la nómina neta
+COMISI[OÓ]N|MANTENIMIENTO CUENTA|CUOTA TARJETA,cargo,626,no,Servicios bancarios (sin IVA)
+AMAZON WEB SERVICES|GOOGLE CLOUD|GOOGLE WORKSPACE|MICROSOFT|GITHUB|ATLASSIAN|NOTION|SLACK|FIGMA|ANTHROPIC|OPENAI,cargo,629,no,"Software/SaaS: pedir factura; proveedor extranjero = inversión del sujeto pasivo (autorrepercutir IVA, 303 y 349)"
+GOOGLE ADS|META ADS|FACEBOOK ADS|LINKEDIN ADS,cargo,627,no,"Publicidad: pedir factura; proveedor UE = inversión del sujeto pasivo"
+SEGURO|P[OÓ]LIZA,cargo,625,no,Primas de seguros (exentas de IVA)
+ENDESA|IBERDROLA|NATURGY|HOLALUZ|CANAL DE ISABEL|AGUAS DE,cargo,628,no,Suministros
+\b(MOVISTAR|TELEFONICA|VODAFONE|ORANGE|DIGI)\b,cargo,629,no,Telecomunicaciones
+NOTARI|REGISTRO MERCANTIL|GESTOR[IÍ]A|ASESOR[IÍ]A|ABOGAD,cargo,410,no,"Pago de factura de profesional ya registrada (623 + 472 / 4751 + 410)"
+STRIPE|ADYEN|PAYPAL|SUMUP|LIQ(UIDACION)?\.? TPV,abono,430,no,"Liquidación de pasarela: importe neto, la comisión va a 626"
+TRANSFERENCIA DE|TRANSF\.? DE|ABONO TRANSFERENCIA,abono,430,no,Cobro de cliente: conciliar con la factura abierta (subcuenta del cliente)
+AMPLIACI[OÓ]N DE CAPITAL|DESEMBOLSO CAPITAL,abono,194,si,Capital pendiente de inscripción hasta que se inscriba la escritura (luego 100/110)
+\bENISA\b,ambos,171,si,"Préstamo participativo ENISA: principal en 171, intereses en 662; usar el cuadro de amortización"
+PR[EÉ]STAMO,ambos,170,si,"Préstamo bancario: separar principal (170/520) e intereses (662) con el cuadro"
+TRASPASO,ambos,572,si,Traspaso entre cuentas propias: la contrapartida es la otra cuenta bancaria (subcuenta 572x)

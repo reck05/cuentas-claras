@@ -1,0 +1,33 @@
+area,peticion,por_que_la_piden,prioridad,modulo,desde_cuando
+General,Cuentas anuales con informe de auditoría y memoria (2-3 ejercicios),Base de la valoración,Crítica,M8,primer cierre
+General,"Balance de sumas y saldos mensual a máximo detalle (subcuenta), 3-4 años",Reconstruir balance y PyG mes a mes,Crítica,M1 / M8,día 1
+General,Libros diarios completos,Revisar y muestrear asientos,Crítica,M1,día 1
+General,Información de gestión (PyG con KPIs) y su reconciliación con contabilidad,Ver si lo que se reporta cuadra con lo oficial,Alta,M8 (mismo libro),día 1
+General,Saldos y transacciones con partes vinculadas,Operaciones fuera de mercado,Alta,M2 (tercero.vinculado),día 1
+General,Organigrama societario y estructura de capital,Perímetro y cap table,Media,M6,constitución
+General,Presentaciones corporativas y comerciales,Contexto del negocio,Alta,—,—
+Ventas,"Ventas en € y unidades por producto, familia, línea, cliente, canal y zona, conciliadas con contabilidad",Calidad y concentración de ingresos,Alta,M1 (dimensiones),día 1
+Compras,Aprovisionamientos por proveedor y producto,Dependencia de proveedores y margen,Alta,M1 / M2,día 1
+Márgenes,Margen bruto o de contribución por línea con desglose de costes,Rentabilidad real de cada negocio,Alta,M1 (dimensiones) / M8,día 1
+Personal,"Plantilla: categoría, departamento, edad, antigüedad, fijo y variable, SS, bonus, jornada",Coste de estructura y riesgos laborales,Media,M5,primer empleado
+Personal,Resúmenes de nómina mensuales y anuales,Cuadre con contabilidad,Media,M5,primer empleado
+Personal,Sistema de remuneración y variables por función,Compromisos futuros,Media,M5,primer empleado
+Personal,Coste y condiciones de autónomos que prestan servicios,Riesgo de falsos autónomos,Media,M2,primer colaborador
+OPEX,Contratos de arrendamiento y renting,Compromisos fijos,Media,M2 (contratos),firma
+Subvenciones,"Subvenciones: concesión, justificación y criterio de imputación contable",Riesgo de reintegro,Alta,M6,concesión
+EBITDA,EBITDA ajustado con el detalle de cada ajuste,Base del precio (múltiplo × EBITDA),Alta,M1 (no_recurrente) / M8,día 1
+Inmovilizado,Registro de activos elemento a elemento cuadrado con contabilidad,Validar capex y amortización,Media,M6,primera compra
+Inmovilizado,Gastos activados y personal capitalizado con soporte (horas por proyecto),Es lo primero que se cuestiona,Media,M6 + partes horarias,primer proyecto de I+D
+Inmovilizado,Capex histórico (mantenimiento vs expansión) y capex comprometido,Proyección de caja,Media,M6 (etiqueta),primera compra
+Existencias,"Inventario valorado por ubicación, tipo y antigüedad; criterio de valoración y obsolescencia",Calidad del activo,Alta,M6,si aplica
+Clientes,Antigüedad de saldos con fecha de factura y vencimiento; garantías de cobro,Cobrabilidad,Alta,M2 (subcuentas + vencimiento),día 1
+Clientes,Política de provisión de insolvencias y sus movimientos,Calidad del resultado,Alta,M7,primer impago
+Clientes,Condiciones de venta y contratos de los 5 mayores clientes,Concentración y cláusulas de cambio de control,Media,M2 (contratos),firma
+Clientes,"Factoring, descuento comercial, leasing y renting",Deuda que no se ve,Alta,M6,firma
+Proveedores,Condiciones de compra de los 5 mayores y antigüedad de saldos,Circulante normalizado,Alta,M2,día 1
+Tesorería,Conciliaciones bancarias de todas las cuentas y extractos,Que la caja existe,Alta,M3,día 1
+Deuda,"Deuda financiera: importe inicial, vencimiento, tipo, límite; CIRBE",Deuda financiera neta que se descuenta del precio,Alta,M6,primer préstamo
+Otros,"Activos y pasivos fuera de balance (avales, garantías)",Pasivos contingentes,Alta,M6 (registro),firma
+Otros,Litigios con carta de los abogados,Contingencias,Alta,—,si aplica
+Fondos propios,Movimientos de fondos propios y planes de opciones,Dilución y cap table,Media,M6,constitución
+Mercado,Competidores directos y códigos arancelarios de los productos,Contexto comercial,Alta,—,—

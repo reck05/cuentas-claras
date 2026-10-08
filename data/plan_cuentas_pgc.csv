@@ -1,0 +1,126 @@
+codigo,nombre,naturaleza,masa,epigrafe_gestion
+100,Capital social,A,PN,
+110,Prima de emisión o asunción,A,PN,
+112,Reserva legal,A,PN,
+113,Reservas voluntarias,A,PN,
+118,Aportaciones de socios o propietarios,A,PN,
+120,Remanente,A,PN,
+121,Resultados negativos de ejercicios anteriores,D,PN,
+129,Resultado del ejercicio,DA,PN,
+130,Subvenciones oficiales de capital,A,PN,
+131,Donaciones y legados de capital,A,PN,
+132,"Otras subvenciones, donaciones y legados",A,PN,
+160,Deudas a largo plazo con entidades de crédito vinculadas,A,PNC,
+163,Otras deudas a largo plazo con partes vinculadas,A,PNC,
+170,Deudas a largo plazo con entidades de crédito,A,PNC,
+171,Deudas a largo plazo (préstamos ENISA y participativos en subcuenta propia),A,PNC,
+172,Deudas a largo plazo transformables en subvenciones,A,PNC,
+173,Proveedores de inmovilizado a largo plazo,A,PNC,
+174,Acreedores por arrendamiento financiero a largo plazo,A,PNC,
+180,Fianzas recibidas a largo plazo,A,PNC,
+194,Capital emitido pendiente de inscripción,A,PC,
+200,Investigación,D,ANC,
+201,Desarrollo,D,ANC,
+203,Propiedad industrial,D,ANC,
+206,Aplicaciones informáticas,D,ANC,
+211,Construcciones,D,ANC,
+213,Maquinaria,D,ANC,
+216,Mobiliario,D,ANC,
+217,Equipos para procesos de información,D,ANC,
+218,Elementos de transporte,D,ANC,
+219,Otro inmovilizado material,D,ANC,
+240,Participaciones a largo plazo en partes vinculadas,D,ANC,
+250,Inversiones financieras a largo plazo en instrumentos de patrimonio,D,ANC,
+260,Fianzas constituidas a largo plazo,D,ANC,
+280,Amortización acumulada del inmovilizado intangible,A,ANC,
+281,Amortización acumulada del inmovilizado material,A,ANC,
+300,Mercaderías,D,AC,
+310,Materias primas,D,AC,
+350,Productos terminados,D,AC,
+390,Deterioro de valor de las existencias,A,AC,
+400,Proveedores,A,PC,
+4009,"Proveedores, facturas pendientes de recibir o de formalizar",A,PC,
+407,Anticipos a proveedores,D,AC,
+410,Acreedores por prestaciones de servicios,A,PC,
+4109,"Acreedores, facturas pendientes de recibir o de formalizar",A,PC,
+430,Clientes,D,AC,
+4309,"Clientes, facturas pendientes de formalizar",D,AC,
+436,Clientes de dudoso cobro,D,AC,
+438,Anticipos de clientes,A,PC,
+440,Deudores,D,AC,
+460,Anticipos de remuneraciones,D,AC,
+465,Remuneraciones pendientes de pago,A,PC,
+470,"Hacienda Pública, deudora por diversos conceptos",D,AC,
+4700,"Hacienda Pública, deudora por IVA",D,AC,
+4708,"Hacienda Pública, deudora por subvenciones concedidas",D,AC,
+4709,"Hacienda Pública, deudora por devolución de impuestos",D,AC,
+471,"Organismos de la Seguridad Social, deudores",D,AC,
+472,"Hacienda Pública, IVA soportado",D,AC,
+473,"Hacienda Pública, retenciones y pagos a cuenta",D,AC,
+475,"Hacienda Pública, acreedora por conceptos fiscales",A,PC,
+4750,"Hacienda Pública, acreedora por IVA",A,PC,
+4751,"Hacienda Pública, acreedora por retenciones practicadas",A,PC,
+4752,"Hacienda Pública, acreedora por impuesto sobre sociedades",A,PC,
+476,"Organismos de la Seguridad Social, acreedores",A,PC,
+477,"Hacienda Pública, IVA repercutido",A,PC,
+480,Gastos anticipados,D,AC,
+485,Ingresos anticipados,A,PC,
+490,Deterioro de valor de créditos por operaciones comerciales,A,AC,
+520,Deudas a corto plazo con entidades de crédito,A,PC,
+5201,Deudas a corto plazo por crédito dispuesto,A,PC,
+521,Deudas a corto plazo,A,PC,
+523,Proveedores de inmovilizado a corto plazo,A,PC,
+524,Acreedores por arrendamiento financiero a corto plazo,A,PC,
+526,Dividendo activo a pagar,A,PC,
+527,Intereses a corto plazo de deudas con entidades de crédito,A,PC,
+551,Cuenta corriente con socios y administradores,DA,AC/PC,
+555,Partidas pendientes de aplicación,DA,AC/PC,
+557,Dividendo activo a cuenta,D,PN,
+560,Fianzas recibidas a corto plazo,A,PC,
+565,Fianzas constituidas a corto plazo,D,AC,
+570,"Caja, euros",D,AC,
+572,"Bancos e instituciones de crédito c/c vista, euros",D,AC,
+600,Compras de mercaderías,D,GAS,Aprovisionamientos
+601,Compras de materias primas,D,GAS,Aprovisionamientos
+607,Trabajos realizados por otras empresas,D,GAS,Aprovisionamientos
+610,Variación de existencias de mercaderías,DA,GAS,Aprovisionamientos
+621,Arrendamientos y cánones,D,GAS,Otros gastos de explotación
+622,Reparaciones y conservación,D,GAS,Otros gastos de explotación
+623,Servicios de profesionales independientes,D,GAS,Otros gastos de explotación
+624,Transportes,D,GAS,Otros gastos de explotación
+625,Primas de seguros,D,GAS,Otros gastos de explotación
+626,Servicios bancarios y similares,D,GAS,Otros gastos de explotación
+627,"Publicidad, propaganda y relaciones públicas",D,GAS,Otros gastos de explotación
+628,Suministros,D,GAS,Otros gastos de explotación
+629,Otros servicios,D,GAS,Otros gastos de explotación
+6300,Impuesto corriente,D,GAS,Impuestos
+6301,Impuesto diferido,DA,GAS,Impuestos
+631,Otros tributos,D,GAS,Otros gastos de explotación
+640,Sueldos y salarios,D,GAS,Personal
+641,Indemnizaciones,D,GAS,Personal
+642,Seguridad Social a cargo de la empresa,D,GAS,Personal
+649,Otros gastos sociales,D,GAS,Personal
+650,Pérdidas de créditos comerciales incobrables,D,GAS,Otros gastos de explotación
+662,Intereses de deudas,D,GAS,Resultado financiero
+668,Diferencias negativas de cambio,D,GAS,Resultado financiero
+669,Otros gastos financieros,D,GAS,Resultado financiero
+678,Gastos excepcionales,D,GAS,Otros resultados
+680,Amortización del inmovilizado intangible,D,GAS,Amortizaciones
+681,Amortización del inmovilizado material,D,GAS,Amortizaciones
+694,Pérdidas por deterioro de créditos por operaciones comerciales,D,GAS,Otros gastos de explotación
+700,Ventas de mercaderías,A,ING,Ingresos
+705,Prestaciones de servicios,A,ING,Ingresos
+706,Descuentos sobre ventas por pronto pago,D,ING,Ingresos
+708,Devoluciones de ventas y operaciones similares,D,ING,Ingresos
+709,Rappels sobre ventas,D,ING,Ingresos
+730,Trabajos realizados para el inmovilizado intangible,A,ING,Otros ingresos de explotación
+731,Trabajos realizados para el inmovilizado material,A,ING,Otros ingresos de explotación
+740,"Subvenciones, donaciones y legados a la explotación",A,ING,Otros ingresos de explotación
+746,"Subvenciones, donaciones y legados de capital transferidos al resultado del ejercicio",A,ING,Otros resultados
+752,Ingresos por arrendamientos,A,ING,Otros ingresos de explotación
+759,Ingresos por servicios diversos,A,ING,Otros ingresos de explotación
+762,Ingresos de créditos,A,ING,Resultado financiero
+768,Diferencias positivas de cambio,A,ING,Resultado financiero
+769,Otros ingresos financieros,A,ING,Resultado financiero
+778,Ingresos excepcionales,A,ING,Otros resultados
+794,Reversión del deterioro de créditos por operaciones comerciales,A,ING,Otros gastos de explotación

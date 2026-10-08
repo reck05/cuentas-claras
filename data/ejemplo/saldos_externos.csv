@@ -1,0 +1,5 @@
+cuentas,fecha,saldo_esperado,fuente,tolerancia
+572,2026-03-31,52959.00,Extracto bancario a 31/03 (Norma 43),0.01
+4751,2026-03-31,-525.00,Modelo 111 1T pendiente de pago,0.01
+476,2026-03-31,0.00,Liquidación Seguridad Social (RLC) pagada,0.01
+472+477,2026-03-31,-609.00,Modelo 303 1T (a ingresar 609),0.01

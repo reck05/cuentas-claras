@@ -1,0 +1,29 @@
+kpi,formula,fuente,frecuencia,nota
+Ingresos,Σ grupo 70 (epígrafe Ingresos),Libro mayor,mensual,
+Margen bruto %,(Ingresos + Aprovisionamientos) / Ingresos,Libro mayor,mensual,Aprovisionamientos en negativo
+EBITDA,Ingresos + Aprovisionamientos + Personal + Otros gastos e ingresos de explotación,Libro mayor,mensual,PyG de gestión en motor.py
+EBITDA ajustado,EBITDA − partidas marcadas no recurrentes,Libro mayor (no_recurrente),mensual,El detalle de ajustes es lo que pide la DD
+EBIT,EBITDA + Amortizaciones + Otros resultados,Libro mayor,mensual,
+Resultado neto,EBIT + Resultado financiero + Impuestos,Libro mayor,mensual,
+Burn neto mensual,"Variación de tesorería del mes sin entradas de financiación (capital, préstamos, subvenciones)",Libro mayor (57x),mensual,
+Runway (meses),Tesorería / media del burn neto de los últimos 3 meses,Libro mayor,mensual,Alerta por debajo del umbral fijado
+Deuda financiera neta,17x + 52x (+ 16x vinculadas) − tesorería − inversiones financieras a corto,Libro mayor,mensual,Negativa = caja neta
+DFN / EBITDA,Deuda financiera neta / EBITDA de los últimos 12 meses,Libro mayor,mensual,n.a. si EBITDA ≤ 0
+Capital circulante operativo,Existencias + Clientes − Proveedores,Libro mayor,mensual,Igual que en las plantillas de EEFF
+PMC (días),Clientes / (Ventas × (1 + IVA)) × 365,Libro mayor,mensual,"Ventas brutas de IVA, como en las plantillas"
+PMP (días),Proveedores / ((Compras + Otros gastos de explotación) × (1 + IVA)) × 365,Libro mayor,mensual,
+PMI (días),Existencias / Aprovisionamientos × 365,Libro mayor,mensual,Si hay existencias
+Ciclo de conversión de caja,PMI + PMC − PMP,Libro mayor,mensual,
+Capex,Altas de inmovilizado (2xx) del periodo,M6,mensual,Separar mantenimiento y expansión
+Flujo de caja libre,EBITDA − impuestos pagados − variación de circulante − capex,Libro mayor,mensual,
+Conversión de caja,Flujo de caja operativo / EBITDA,Libro mayor,trimestral,Pregunta del cuestionario de madurez
+Liquidez corriente,Activo corriente / Pasivo corriente,Libro mayor,mensual,
+ROE,Resultado neto / Fondos propios medios,Libro mayor,anual,
+ROIC,EBIT × (1 − tipo impositivo) / (Fondos propios + DFN),Libro mayor,anual,25 % general; 15 % si aplica la Ley de startups
+Coste por empleado,Gastos de personal / plantilla media,Libro mayor + M5,mensual,
+MRR / ARR,Ingresos recurrentes del mes / MRR × 12,Facturación (M2),mensual,Solo modelos de suscripción
+Churn de ingresos,MRR perdido en el mes / MRR al inicio del mes,Facturación (M2),mensual,
+CAC,(Marketing + ventas) / clientes nuevos,Libro mayor (dimensión canal) + CRM,mensual,
+Días de cierre,Días hábiles desde fin de mes hasta el bloqueo del periodo,M7,mensual,Objetivo ≤ 5
+% automático,Movimientos contabilizados sin intervención / total,M3,mensual,Calidad del autoclasificador
+% acierto IA,Propuestas de IA aceptadas sin cambios / revisadas,M3,mensual,Objetivo ≥ 98 % antes de automatizar
