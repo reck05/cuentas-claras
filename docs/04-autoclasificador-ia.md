@@ -70,20 +70,21 @@ extracción es determinista y la IA solo hace falta para lo que llega en PDF o p
 
 ## 5. Modelo, coste y privacidad
 
-- El prototipo usa Claude (`claude-opus-5-5`) con esfuerzo bajo (clasificar no necesita razonamiento largo), salida estructurada con esquema JSON y *fallback* automático en el servidor si el modelo declina una petición.
+- La aplicación usa Claude (`claude-opus-5-5`) con esfuerzo bajo (clasificar no necesita razonamiento largo), salida estructurada con esquema JSON y *fallback* automático en el servidor si el modelo declina una petición.
 - **Coste:** las reglas se llevan la mayoría del volumen; a la IA solo llega el resto. Para lotes nocturnos, la Batch API cuesta la mitad. El plan de cuentas va en caché de prompt. Probar un modelo más barato solo si la evaluación demuestra que mantiene el acierto.
 - **Privacidad (RGPD):** los conceptos bancarios incluyen nombres de empleados y de personas físicas. Seudonimizar antes de enviar (`EMPLEADO 001`), no enviar IBAN completos y firmar el contrato de encargado de tratamiento con el proveedor del modelo.
 
-## 6. El prototipo
+## 6. Cómo está implementado
 
-```bash
-python clasificador.py data/ejemplo/banco.csv          # solo reglas
-python clasificador.py data/ejemplo/banco.csv --ia     # reglas + Claude para el resto
-```
+En [`bancos.py`](../bancos.py) y la pantalla **Bancos** de la aplicación:
 
-Escribe `banco_propuesta.csv` con la cuenta propuesta, el origen (regla / ia / pendiente), la confianza y si hay que
-revisarlo. En el ejemplo, 10 de 13 movimientos se resuelven por reglas y 3 pagos con tarjeta (restaurante, coworking,
-tren) quedan para la IA.
+1. **Importar** un extracto Norma 43 (se comprueban los totales que trae el propio fichero) o un CSV de la banca online. Reimportar el mismo fichero no duplica movimientos.
+2. **Proponer:** conciliación con facturas abiertas (importe exacto, sentido, nombre del tercero, número de factura) → reglas de la tabla `regla` → IA opcional.
+3. **Revisar y contabilizar:** cada movimiento muestra la cuenta propuesta, el origen, la confianza y si pide revisión. Se acepta o se cambia la cuenta; al aprobar se genera el asiento (o el cobro/pago de la factura). "Contabilizar las propuestas sin dudas" aprueba de golpe las que no piden revisión.
+4. **Aprender:** al aprobar se puede crear una regla ("el concepto contiene…") que pasa por delante de las genéricas, y los movimientos ya contabilizados son los ejemplos que recibe la IA.
 
-**Pendiente para la siguiente fase:** la capa de emparejamiento con facturas abiertas, convertir la propuesta aprobada en
-asientos y guardar las correcciones como ejemplos y reglas.
+En la demo, de 13 movimientos de abril: 2 se concilian solos con sus facturas, 6 se resuelven por reglas, 2 piden revisión
+(préstamo ENISA y traspaso entre cuentas) y 3 pagos con tarjeta quedan para la IA o para la persona.
+
+La llamada a Claude está probada contra el SDK oficial con un servidor simulado (forma de la petición y lectura de la
+respuesta) y con un cliente falso en las pruebas; para usarla de verdad hace falta una clave de API.

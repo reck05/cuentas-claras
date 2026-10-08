@@ -1,5 +1,8 @@
 __pycache__/
 *.pyc
+*.db
 *_propuesta.csv
+dataroom_*.zip
 .env
 .venv/
+.claude/

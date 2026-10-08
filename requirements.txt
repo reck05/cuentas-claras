@@ -1,1 +1,1 @@
-anthropic  # solo para clasificador.py --ia
+anthropic>=1.0  # solo para la IA del clasificador bancario (opcional)

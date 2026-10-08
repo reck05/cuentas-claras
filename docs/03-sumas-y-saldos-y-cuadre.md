@@ -14,13 +14,14 @@ Cuenta  Nombre                      Debe       Haber     Saldo D    Saldo A
 TOTAL                             75.806,00  75.806,00  59.625,00  59.625,00
 ```
 
-`python motor.py data/ejemplo` genera este informe con datos de ejemplo.
+En la aplicación está en **Sumas y saldos** (a subcuenta o agrupado a 3-4 dígitos, a cualquier fecha) y en el data room
+sale mes a mes. Desde la terminal: `python app.py --db demo.db informe`.
 
 ## 2. Las tres leyes que siempre se cumplen
 
 | | Ley | Cómo se garantiza en el software |
 |---|---|---|
-| L1 | Cada asiento cuadra: Σ debe = Σ haber | Restricción en la base de datos: un asiento descuadrado no se puede guardar (en el prototipo, vista `v_asientos_descuadrados` que debe estar vacía) |
+| L1 | Cada asiento cuadra: Σ debe = Σ haber | La aplicación no guarda un asiento descuadrado; además, la vista `v_asientos_descuadrados` tiene que estar vacía (control C01). En Postgres, trigger diferido (docs/05) |
 | L2 | Por tanto, Σ sumas debe = Σ sumas haber y Σ saldos deudores = Σ saldos acreedores | Consecuencia de L1; se comprueba igualmente (controles C02, C03) |
 | L3 | Activo = Patrimonio neto + Pasivo, con el resultado (grupo 7 − grupo 6) dentro del PN | Consecuencia de L1 si cada cuenta está bien asignada a su masa (columna `masa` del plan) |
 
@@ -75,9 +76,10 @@ Cada cuenta importante se cuadra contra una fuente que no es la propia contabili
 | Σ 303 = 390 · Σ 111 = 190 · Σ 115 = 180 | Resúmenes anuales | Anual |
 | 6300 / 4752 / 473 | Modelo 200 | Anual |
 
-El catálogo completo con 30 controles está en [`data/controles_cuadre.csv`](../data/controles_cuadre.csv). En el prototipo,
-los controles de nivel 3 se alimentan de [`saldos_externos.csv`](../data/ejemplo/saldos_externos.csv): una línea por fuente
-con las cuentas (se pueden sumar: `472+477`), la fecha y el saldo que dice la fuente (deudor positivo, acreedor negativo).
+El catálogo completo está en [`data/controles_cuadre.csv`](../data/controles_cuadre.csv), con qué está implementado. En la
+aplicación, los controles de nivel 3 se alimentan de los **saldos externos** (pantalla Controles): una línea por fuente con
+las cuentas (se pueden sumar: `472+477`), la fecha y el saldo que dice la fuente (deudor positivo, acreedor negativo).
+Los extractos Norma 43 registran el suyo al importarse, así que el banco se cuadra solo.
 
 ## 4. Qué datos necesita el sistema para poder cuadrarlo todo
 

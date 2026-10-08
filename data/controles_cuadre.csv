@@ -1,31 +1,33 @@
-id,nivel,control,que_compara,fuente,frecuencia,tolerancia_eur,automatizable,en_prototipo
+id,nivel,control,que_compara,fuente,frecuencia,tolerancia_eur,automatizable,implementado
 C01,1,Cada asiento cuadra,Σ debe = Σ haber en cada asiento,Libro diario,continuo,0,si,si
 C02,1,Sumas iguales,Σ sumas debe = Σ sumas haber,Sumas y saldos,continuo,0,si,si
 C03,1,Saldos iguales,Σ saldos deudores = Σ saldos acreedores,Sumas y saldos,continuo,0,si,si
+C03b,1,Ecuación patrimonial,Activo = patrimonio neto + pasivo,Balance,continuo,0,si,si
 C04,2,Signo según naturaleza,Saldo de cada cuenta frente a su naturaleza (D/A),Plan de cuentas,continuo,0,si,si
 C05,2,Transitorias a cero,555 a cero; 4009/4109 revisadas,Sumas y saldos,cierre mensual,0,si,si (555)
 C06,3,Cuadre con fuente externa,Saldo contable = saldo que dice la fuente,saldos_externos.csv,según fuente,0.01,si,si
 C07,2,Periodo cerrado intocable,Ningún apunte en un mes bloqueado,Periodos,continuo,0,si,si (trigger)
-C08,2,Duplicados,Mismo tercero + nº de factura; mismo importe + fecha + concepto,Documentos,continuo,0,si,no
-C09,2,Numeración de facturas emitidas,Serie correlativa sin huecos,Facturas emitidas,continuo,0,si,no
-C10,2,Aritmética de factura,Base × tipo = cuota; total = base + IVA − retención,Documentos,continuo,0.01,si,no
-C11,2,Recurrentes presentes,"Amortización, nóminas, cuotas de préstamo y periodificaciones del mes contabilizadas",Histórico,cierre mensual,0,si,no
+C08,2,Duplicados,Mismo tercero + nº de factura; mismo importe + fecha + concepto,Documentos,continuo,0,si,si (índices únicos)
+C09,2,Numeración de facturas emitidas,Serie correlativa sin huecos,Facturas emitidas,continuo,0,si,si
+C10,2,Aritmética de factura,Base × tipo = cuota; total = base + IVA − retención,Documentos,continuo,0.01,si,si (IVA y retención se calculan)
+C11,2,Recurrentes presentes,"Amortización, nóminas, cuotas de préstamo y periodificaciones del mes contabilizadas",Histórico,cierre mensual,0,si,si (amortizaciones)
 C12,2,Anomalías,Importe por concepto frente a su mediana histórica; conceptos nuevos o ausentes,Histórico,continuo,,si,no
-C13,3,Bancos,572x = extracto bancario,Norma 43 / PSD2,diaria,0.01,si,si (vía C06)
-C14,3,Caja,570 = arqueo,Arqueo,mensual,0.01,manual,no
-C15,3,Clientes,Σ subcuentas 430 = facturas emitidas pendientes de cobro,Antigüedad de clientes,mensual,0.01,si,no
-C16,3,Proveedores y acreedores,Σ 400 + 410 = facturas recibidas pendientes de pago,Antigüedad de proveedores,mensual,0.01,si,no
-C17,3,IVA,472 + 477 = resultado del modelo 303,Modelo 303,trimestral,0.01,si,si (vía C06)
-C18,3,Retenciones,4751 = modelos 111 + 115 pendientes,Modelos 111/115,trimestral,0.01,si,si (vía C06)
-C19,3,Seguridad Social,476 = liquidación RLC/RNT pendiente,TGSS,mensual,0.01,si,si (vía C06)
-C20,3,Nóminas,640 + 642 = resumen de nóminas del mes,Software de nóminas / gestoría,mensual,0.01,si,no
-C21,3,Inmovilizado,2xx y 28x = registro de activos y cuadro de amortización,Registro de inmovilizado,mensual,0.01,si,no
-C22,3,Existencias,3xx = inventario valorado,Inventario,mensual,0.01,parcial,no
-C23,3,Deuda financiera,17x + 52x = cuadros de préstamos y CIRBE,Bancos / CIRBE,mensual,0.01,si,no
+C13,3,Bancos,572x = extracto bancario,Norma 43 / PSD2,diaria,0.01,si,si
+C14,3,Caja,570 = arqueo,Arqueo,mensual,0.01,manual,vía C06
+C15,3,Clientes,Σ subcuentas 430 = facturas emitidas pendientes de cobro,Antigüedad de clientes,mensual,0.01,si,si
+C16,3,Proveedores y acreedores,Σ 400 + 410 = facturas recibidas pendientes de pago,Antigüedad de proveedores,mensual,0.01,si,si
+C17,3,IVA,472 + 477 = resultado del modelo 303,Modelo 303,trimestral,0.01,si,si (borrador 303 y C06)
+C18,3,Retenciones,4751 = modelos 111 + 115 pendientes,Modelos 111/115,trimestral,0.01,si,vía C06
+C19,3,Seguridad Social,476 = liquidación RLC/RNT pendiente,TGSS,mensual,0.01,si,vía C06
+C20,3,Nóminas,640 + 642 = resumen de nóminas del mes,Software de nóminas / gestoría,mensual,0.01,si,vía C06
+C21,3,Inmovilizado,2xx y 28x = registro de activos y cuadro de amortización,Registro de inmovilizado,mensual,0.01,si,si
+C22,3,Existencias,3xx = inventario valorado,Inventario,mensual,0.01,parcial,vía C06
+C23,3,Deuda financiera,17x + 52x = cuadros de préstamos y CIRBE,Bancos / CIRBE,mensual,0.01,si,vía C06
 C24,3,Reclasificación a corto,Lo que vence en < 12 meses está en 52x,Cuadros de préstamos,cierre,0.01,si,no
 C25,3,Fondos propios,100 / 110 / 194 = escrituras inscritas y libro de socios,Registro Mercantil,por operación,0,manual,no
 C26,3,Periodificaciones,480 / 485 = calendario de devengo de contratos,Contratos,mensual,0.01,si,no
-C27,3,Operaciones con terceros,"Terceros > 3.005,06 € al año = modelo 347",Modelo 347,anual,0.01,si,no
+C27,3,Operaciones con terceros,"Terceros > 3.005,06 € al año = modelo 347",Modelo 347,anual,0.01,si,borrador 347
 C28,3,Resúmenes anuales,Σ 303 = 390; Σ 111 = 190; Σ 115 = 180,Modelos AEAT,anual,0.01,si,no
 C29,3,Impuesto sobre sociedades,6300 / 4752 / 473 = modelo 200,Modelo 200,anual,0.01,parcial,no
-C30,2,Gestión = contabilidad,PyG de gestión = PyG contable al céntimo,Mismo libro,mensual,0,si,si (por diseño)
+C30,2,Gestión = contabilidad,PyG de gestión = PyG contable al céntimo,Mismo libro,mensual,0,si,si
+C31,2,Ejercicios anteriores regularizados,Grupos 6 y 7 de años cerrados llevados a la 129,Libro mayor,anual,0,si,si
